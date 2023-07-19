@@ -15,7 +15,6 @@ function ScoreBar() {
   const score = useRecoilValue(atom({ key: "scoreState" }));
   const highScore = useRecoilValue(atom({ key: "highScoreState" }));
   const setGameOver = useSetRecoilState(atom({ key: "gameOverState" }));
-  console.log(score, highScore);
   return (
     <div className="score-bar">
       <div className="score-wrapper">

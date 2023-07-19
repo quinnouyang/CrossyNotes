@@ -22,7 +22,6 @@ function Inputs() {
 
   const keyPressHandler = useCallback(
     (e) => {
-      console.log("keypress");
       if (e.preventDefault) {
         e.preventDefault();
       }
