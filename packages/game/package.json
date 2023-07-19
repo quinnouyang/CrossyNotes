@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "build": "react-scripts build",
     "start-legacy": "react-scripts --openssl-legacy-provider start",
     "build-legacy": "react-scripts --openssl-legacy-provider build",
     "serve": "serve build",
