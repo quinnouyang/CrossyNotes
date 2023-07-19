@@ -62,7 +62,10 @@ img {
   position: absolute;
   z-index: 1000;
   transform: translate(-50%, -50%);
-  transition: top 0.35s linear, left 0.35s linear, transform 0.35s linear;
+  transition:
+    top 0.35s linear,
+    left 0.35s linear,
+    transform 0.35s linear;
 }
 .frog.dead {
   -webkit-transform: skew(-63deg, 26.6deg) scaleY(0.5);
@@ -74,7 +77,7 @@ img {
 }
 
 .boat,
-.truck {
+.note {
   position: absolute;
 }
 
@@ -82,15 +85,21 @@ img {
   z-index: 900;
   width: 5vw;
   transform: translateX(-50%);
-  transition: top 0.35s linear, left 0.35s linear, opacity 0.5s linear;
+  transition:
+    top 0.35s linear,
+    left 0.35s linear,
+    opacity 0.5s linear;
 }
 
-.truck {
+.note {
   transform: translate(-50%, -50%);
   z-index: 1100;
   width: 5vw;
   height: 5vw;
-  transition: top 0.35s linear, left 0.35s linear, opacity 0.5s linear;
+  transition:
+    top 0.35s linear,
+    left 0.35s linear,
+    opacity 0.5s linear;
 }
 .buttons {
   position: fixed;

@@ -8,8 +8,8 @@ import grass from "./images/grass.png";
 import road from "./images/road.png";
 import roadGrassAbove from "./images/road_grass_above.png";
 import roadGrassBelow from "./images/road_grass_below.png";
-import truckUp from "./images/truck_NW.png";
-import truckDown from "./images/truck_SE.png";
+import noteUp from "./images/note_NW.png";
+import noteDown from "./images/note_SE.png";
 import water from "./images/water.png";
 import waterBeachAbove from "./images/water_beach_above.png";
 import waterBeachBelow from "./images/water_beach_below.png";
@@ -29,8 +29,8 @@ export {
   road,
   roadGrassAbove,
   roadGrassBelow,
-  truckUp,
-  truckDown,
+  noteUp,
+  noteDown,
   water,
   waterBeachAbove,
   waterBeachBelow,

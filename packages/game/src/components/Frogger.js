@@ -4,7 +4,7 @@ import World from "./World";
 import Inputs from "./Inputs";
 import {
   isDrowning,
-  isTruckCollision,
+  isNoteCollision,
   hasReachedGoal,
   getRiddenBoat,
   isRidingBoat,
@@ -32,8 +32,8 @@ function Frogger() {
   const frogState = atom({ key: "frogState", default: {} });
   const [frog, setFrog] = useRecoilState(frogState);
 
-  // Trucks
-  const trucks = useRecoilValue(atom({ key: "trucksState" }));
+  // Notes
+  const notes = useRecoilValue(atom({ key: "notesState" }));
   // Boats
   const boats = useRecoilValue(atom({ key: "boatsState" }));
 
@@ -56,14 +56,14 @@ function Frogger() {
     }
 
     // Check for drowning
-    if (trucks && isTruckCollision(frog, trucks)) resetFrog();
+    if (notes && isNoteCollision(frog, notes)) resetFrog();
     if (boats && isRidingBoat(frog, boats)) {
       const boat = getRiddenBoat(frog, boats);
       if (!objectsIdentical(frog, { ...frog, x: boat.x, y: boat.y })) {
         setFrog({ ...frog, x: boat.x, y: boat.y });
       }
     } else if (boats && isDrowning(frog, boats)) resetFrog();
-  }, [trucks, boats, frog, setFrog, gameOver, setGameOver]);
+  }, [notes, boats, frog, setFrog, gameOver, setGameOver]);
 
   useEffect(() => {
     // Check for reaching goal

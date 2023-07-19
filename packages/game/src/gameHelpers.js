@@ -1,7 +1,7 @@
 import { WATER_TILES_Y_INDEXES } from "./constants";
 
-export const isTruckCollision = (frog, trucks) => {
-  return trucks.some((truck) => truck.x === frog.x && truck.y === frog.y);
+export const isNoteCollision = (frog, notes) => {
+  return notes.some((note) => note.x === frog.x && note.y === frog.y);
 };
 
 export const isDrowning = (frog, boats) => {
