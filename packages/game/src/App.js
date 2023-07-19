@@ -1,7 +1,7 @@
 import React from "react";
 import { RecoilRoot } from "recoil";
 import ScoreBar from "./components/ScoreBar";
-import Frogger from "./components/Frogger";
+import Game from "./components/Game";
 
 function App() {
   return (
@@ -12,13 +12,13 @@ function App() {
           <span role="img" aria-label="flag">
             🏁
           </span>
-          FROGGER
+          GAME
           <span role="img" aria-label="flag">
             {" "}
             🏁
           </span>
         </h1>
-        <Frogger />
+        <Game />
       </div>
     </RecoilRoot>
   );

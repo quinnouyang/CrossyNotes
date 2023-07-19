@@ -1,6 +1,6 @@
 import React from "react";
 
-function Frog() {
+export default function PlayerIcon() {
   return (
     <svg
       version="1.1"
@@ -165,5 +165,3 @@ function Frog() {
     </svg>
   );
 }
-
-export default Frog;

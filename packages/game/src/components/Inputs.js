@@ -3,11 +3,11 @@ import { atom, useRecoilState, useRecoilValue } from "recoil";
 import ArrowsIcon from "./ArrowsIcon";
 
 function Inputs() {
-  const frogState = atom({
-    key: "frogState",
+  const playerState = atom({
+    key: "playerState",
     default: { x: 4, y: 8, dir: "up" },
   });
-  const [frog, setFrog] = useRecoilState(frogState);
+  const [player, setPlayer] = useRecoilState(playerState);
   const allowInputState = atom({
     key: "allowInputState",
     default: true,
@@ -37,35 +37,35 @@ function Inputs() {
       }, 350);
       if (e.keyCode === 37) {
         // left
-        setFrog({
-          x: frog.x > 0 ? frog.x - 1 : 0,
-          y: frog.y,
+        setPlayer({
+          x: player.x > 0 ? player.x - 1 : 0,
+          y: player.y,
           dir: "left",
         });
       } else if (e.keyCode === 39) {
         // right
-        setFrog({
-          x: frog.x < 8 ? frog.x + 1 : 8,
-          y: frog.y,
+        setPlayer({
+          x: player.x < 8 ? player.x + 1 : 8,
+          y: player.y,
           dir: "right",
         });
       } else if (e.keyCode === 38) {
         // up
-        setFrog({
-          x: frog.x,
-          y: frog.y > -1 ? frog.y - 1 : 0,
+        setPlayer({
+          x: player.x,
+          y: player.y > -1 ? player.y - 1 : 0,
           dir: "up",
         });
       } else if (e.keyCode === 40) {
         // down
-        setFrog({
-          x: frog.x,
-          y: frog.y < 8 ? frog.y + 1 : 8,
+        setPlayer({
+          x: player.x,
+          y: player.y < 8 ? player.y + 1 : 8,
           dir: "down",
         });
       }
     },
-    [frog, setFrog, gameOver, allowInput, setAllowInput]
+    [player, setPlayer, gameOver, allowInput, setAllowInput]
   );
 
   useEffect(() => {

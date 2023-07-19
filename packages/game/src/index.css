@@ -58,7 +58,7 @@ img {
   transform: skew(-63deg, 26.6deg);
 }
 
-.frog {
+.player {
   position: absolute;
   z-index: 1000;
   transform: translate(-50%, -50%);
@@ -67,7 +67,7 @@ img {
     left 0.35s linear,
     transform 0.35s linear;
 }
-.frog.dead {
+.player.dead {
   -webkit-transform: skew(-63deg, 26.6deg) scaleY(0.5);
   -moz-transform: skew(-63deg, 26.6deg) scaleY(0.5);
   -o-transform: skew(-63deg, 26.6deg) scaleY(0.5);

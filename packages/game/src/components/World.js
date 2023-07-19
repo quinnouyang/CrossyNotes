@@ -1,5 +1,5 @@
 import React from "react";
-import Frog from "./Frog";
+import Player from "./Player";
 import Landscape from "./Landscape";
 import Notes from "./Notes";
 import Boats from "./Boats";
@@ -10,7 +10,7 @@ function World() {
       <Landscape />
       <Notes />
       <Boats />
-      <Frog />
+      <Player />
     </div>
   );
 }
