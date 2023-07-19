@@ -187,3 +187,35 @@ img {
   border: 1px solid #89b549;
   z-index: 2000;
 }
+
+.scorebar {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 0 0;
+}
+
+.inventory {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center; /* Align items vertically at the center */
+}
+
+.inventory li.selected {
+  background-color: orange;
+  color: white;
+}
+
+.inventory li {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.container {
+  display: flex;
+  margin: 20px;
+}
