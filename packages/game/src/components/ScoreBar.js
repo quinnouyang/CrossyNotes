@@ -5,13 +5,13 @@ import {
   useRecoilValue,
   useSetRecoilState,
 } from "recoil";
-import FrogIcon from "./FrogIcon";
+import PlayerIcon from "./PlayerIcon";
 import CrownIcon from "./CrownIcon";
 import Inventory from "./Inventory";
 
 function ScoreBar() {
-  const [frog, setFrog] = useRecoilState(
-    atom({ key: "frogState", default: {} })
+  const [player, setPlayer] = useRecoilState(
+    atom({ key: "playerState", default: {} })
   );
   const inventoryState = atom({
     key: "inventoryState",
@@ -37,12 +37,12 @@ function ScoreBar() {
   return (
     <div className="score-bar">
       <div className="score-wrapper">
-        {frog && frog.dead ? (
+        {player && player.dead ? (
           <div
             className="button"
             onClick={() => {
               setGameOver(false);
-              setFrog({ x: 4, y: 8, dir: "up", dead: false });
+              setPlayer({ x: 4, y: 8, dir: "up", dead: false });
             }}
           >
             RESTART
@@ -51,6 +51,8 @@ function ScoreBar() {
           <>
             <FrogIcon />
             <span className="score scorebar">{score ? score : 0}</span>
+            <PlayerIcon />
+            <span className="score">{score ? score : 0}</span>
             <CrownIcon />
             <span className="high-score scorebar">
               {highScore ? highScore : 0}

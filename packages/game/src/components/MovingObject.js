@@ -1,5 +1,5 @@
 import React from "react";
-import { boatUp, boatDown, truckUp, truckDown } from "../images";
+import { boatUp, boatDown, noteUp, noteDown } from "../images";
 import { WORLD_SIZE, TILE_ASPECT_RATIO } from "../constants";
 
 function MovingObject({ x, y, type, dir }) {
@@ -13,10 +13,10 @@ function MovingObject({ x, y, type, dir }) {
     src = boatUp;
   } else if (type === "boat" && dir === "down") {
     src = boatDown;
-  } else if (type === "truck" && dir === "up") {
-    src = truckUp;
-  } else if (type === "truck" && dir === "down") {
-    src = truckDown;
+  } else if (type === "note" && dir === "up") {
+    src = noteUp;
+  } else if (type === "note" && dir === "down") {
+    src = noteDown;
   }
   return (
     <img

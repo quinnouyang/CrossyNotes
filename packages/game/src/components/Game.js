@@ -4,14 +4,14 @@ import World from "./World";
 import Inputs from "./Inputs";
 import {
   isDrowning,
-  isTruckCollision,
+  isNoteCollision,
   hasReachedGoal,
   getRiddenBoat,
   isRidingBoat,
   objectsIdentical,
 } from "../gameHelpers";
 
-function Frogger() {
+export default function Game() {
   //Score
   const scoreState = atom({
     key: "scoreState",
@@ -28,53 +28,53 @@ function Frogger() {
   const [gameOver, setGameOver] = useRecoilState(
     atom({ key: "gameOverState", default: false })
   );
-  // Frog
-  const frogState = atom({ key: "frogState", default: {} });
-  const [frog, setFrog] = useRecoilState(frogState);
+  // Player
+  const playerState = atom({ key: "playerState", default: {} });
+  const [player, setPlayer] = useRecoilState(playerState);
 
-  // Trucks
-  const trucks = useRecoilValue(atom({ key: "trucksState" }));
+  // Notes
+  const notes = useRecoilValue(atom({ key: "notesState" }));
   // Boats
   const boats = useRecoilValue(atom({ key: "boatsState" }));
 
   useEffect(() => {
     /**
-     * Temporarily sets game to over and frog to dead before respawning
+     * Temporarily sets game to over and player to dead before respawning
      */
-    function resetFrog() {
+    function resetPlayer() {
       if (!gameOver) {
         setGameOver(true);
       }
-      if (!frog.dead) {
-        setFrog({ ...frog, dead: true });
+      if (!player.dead) {
+        setPlayer({ ...player, dead: true });
       }
 
       setTimeout(() => {
         setGameOver(false);
-        setFrog({ ...frog, x: 4, y: 8, dir: "up", dead: false });
+        setPlayer({ ...player, x: 4, y: 8, dir: "up", dead: false });
       }, 1000);
     }
 
     // Check for drowning
-    if (trucks && isTruckCollision(frog, trucks)) resetFrog();
-    if (boats && isRidingBoat(frog, boats)) {
-      const boat = getRiddenBoat(frog, boats);
-      if (!objectsIdentical(frog, { ...frog, x: boat.x, y: boat.y })) {
-        setFrog({ ...frog, x: boat.x, y: boat.y });
+    if (notes && isNoteCollision(player, notes)) resetPlayer();
+    if (boats && isRidingBoat(player, boats)) {
+      const boat = getRiddenBoat(player, boats);
+      if (!objectsIdentical(player, { ...player, x: boat.x, y: boat.y })) {
+        setPlayer({ ...player, x: boat.x, y: boat.y });
       }
-    } else if (boats && isDrowning(frog, boats)) resetFrog();
-  }, [trucks, boats, frog, setFrog, gameOver, setGameOver]);
+    } else if (boats && isDrowning(player, boats)) resetPlayer();
+  }, [notes, boats, player, setPlayer, gameOver, setGameOver]);
 
   useEffect(() => {
     // Check for reaching goal
-    if (hasReachedGoal(frog)) {
+    if (hasReachedGoal(player)) {
       setScore(score + 1);
       if (score + 1 > highScore) {
         setHighScore(score + 1);
       }
-      setFrog({ ...frog, x: 4, y: 8 });
+      setPlayer({ ...player, x: 4, y: 8 });
     }
-  }, [frog, setFrog, score, setScore, highScore, setHighScore]);
+  }, [player, setPlayer, score, setScore, highScore, setHighScore]);
 
   return (
     <>
@@ -83,5 +83,3 @@ function Frogger() {
     </>
   );
 }
-
-export default Frogger;

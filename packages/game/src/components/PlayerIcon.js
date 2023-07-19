@@ -1,6 +1,6 @@
 import React from "react";
 
-function Frog() {
+export default function PlayerIcon() {
   return (
     <div className="scorebar">
       <svg
@@ -167,5 +167,3 @@ function Frog() {
     </div>
   );
 }
-
-export default Frog;
