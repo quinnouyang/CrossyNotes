@@ -62,7 +62,10 @@ img {
   position: absolute;
   z-index: 1000;
   transform: translate(-50%, -50%);
-  transition: top 0.35s linear, left 0.35s linear, transform 0.35s linear;
+  transition:
+    top 0.35s linear,
+    left 0.35s linear,
+    transform 0.35s linear;
 }
 .frog.dead {
   -webkit-transform: skew(-63deg, 26.6deg) scaleY(0.5);
@@ -82,7 +85,10 @@ img {
   z-index: 900;
   width: 5vw;
   transform: translateX(-50%);
-  transition: top 0.35s linear, left 0.35s linear, opacity 0.5s linear;
+  transition:
+    top 0.35s linear,
+    left 0.35s linear,
+    opacity 0.5s linear;
 }
 
 .truck {
@@ -90,7 +96,10 @@ img {
   z-index: 1100;
   width: 5vw;
   height: 5vw;
-  transition: top 0.35s linear, left 0.35s linear, opacity 0.5s linear;
+  transition:
+    top 0.35s linear,
+    left 0.35s linear,
+    opacity 0.5s linear;
 }
 .buttons {
   position: fixed;
@@ -177,4 +186,36 @@ img {
   background-color: #222;
   border: 1px solid #89b549;
   z-index: 2000;
+}
+
+.scorebar {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 0 0;
+}
+
+.inventory {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center; /* Align items vertically at the center */
+}
+
+.inventory li.selected {
+  background-color: orange;
+  color: white;
+}
+
+.inventory li {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.container {
+  display: flex;
+  margin: 20px;
 }
