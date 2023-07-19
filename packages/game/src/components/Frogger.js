@@ -37,36 +37,33 @@ function Frogger() {
   // Boats
   const boats = useRecoilValue(atom({ key: "boatsState" }));
 
-  // Check for hit by truck
   useEffect(() => {
-    if (trucks && isTruckCollision(frog, trucks)) {
+    /**
+     * Temporarily sets game to over and frog to dead before respawning
+     */
+    function resetFrog() {
       if (!gameOver) {
         setGameOver(true);
       }
       if (!frog.dead) {
         setFrog({ ...frog, dead: true });
       }
-    }
-  }, [trucks, frog, setFrog, gameOver, setGameOver]);
 
-  useEffect(() => {
+      setTimeout(() => {
+        setGameOver(false);
+        setFrog({ ...frog, x: 4, y: 8, dir: "up", dead: false });
+      }, 1000);
+    }
+
     // Check for drowning
+    if (trucks && isTruckCollision(frog, trucks)) resetFrog();
     if (boats && isRidingBoat(frog, boats)) {
-      console.log("riding", frog);
       const boat = getRiddenBoat(frog, boats);
       if (!objectsIdentical(frog, { ...frog, x: boat.x, y: boat.y })) {
         setFrog({ ...frog, x: boat.x, y: boat.y });
       }
-    } else if (boats && isDrowning(frog, boats)) {
-      if (!gameOver) {
-        setGameOver(true);
-      }
-      if (!frog.dead) {
-        setFrog({ ...frog, dead: true });
-      }
-      console.log("Drown", frog);
-    }
-  }, [boats, frog, setFrog, gameOver, setGameOver]);
+    } else if (boats && isDrowning(frog, boats)) resetFrog();
+  }, [trucks, boats, frog, setFrog, gameOver, setGameOver]);
 
   useEffect(() => {
     // Check for reaching goal
