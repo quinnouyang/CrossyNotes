@@ -11,7 +11,7 @@
     "tone": "^14.7.77"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "start-legacy": "react-scripts --openssl-legacy-provider start",
     "build-legacy": "react-scripts --openssl-legacy-provider build",
