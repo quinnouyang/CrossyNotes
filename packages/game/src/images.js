@@ -17,6 +17,7 @@ import note35 from "./images/notes/note_3.5.png";
 import note4 from "./images/notes/note_4.png";
 import note45 from "./images/notes/note_4.5.png";
 
+import chord from "./images/chords/chord.png";
 import chord1 from "./images/chords/chord_1.png";
 import chord15 from "./images/chords/chord_1.5.png";
 import chord2 from "./images/chords/chord_2.png";
@@ -58,6 +59,7 @@ export {
   note35,
   note4,
   note45,
+  chord,
   chord1,
   chord15,
   chord2,

@@ -147,11 +147,7 @@ export default function Game() {
 
   return (
     <>
-      {level === 1 && <World />}
-      {level === 2 && <World />}
-      {level === 3 && <World />}
-      {level === 4 && <World />}
-
+      <World />
       <Inputs />
     </>
   );
