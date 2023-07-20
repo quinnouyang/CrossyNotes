@@ -1,5 +1,5 @@
 import React from "react";
-import { boatUp, boatDown, noteUp, noteDown } from "../images";
+import { chord1, note } from "../images";
 import { WORLD_SIZE, TILE_ASPECT_RATIO } from "../constants";
 
 export default function MovingObject({ x, y, type, dir }) {
@@ -11,13 +11,13 @@ export default function MovingObject({ x, y, type, dir }) {
 
   let src;
   if (type === "boat" && dir === "up") {
-    src = boatUp;
+    src = chord1;
   } else if (type === "boat" && dir === "down") {
-    src = boatDown;
+    src = chord1;
   } else if (type === "note" && dir === "up") {
-    src = noteUp;
+    src = note;
   } else if (type === "note" && dir === "down") {
-    src = noteDown;
+    src = note;
   }
   return (
     <img
