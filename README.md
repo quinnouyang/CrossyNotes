@@ -4,11 +4,11 @@
 
 > This project would literally not be possible without boilerplate from https://github.com/danba340/frogger. For that, we are eternally greatful. 💜
 
-## Kocree's Beethoven's Music Crossing Game
+## A Beethoven-themed Music Crossing Game
 
 Welcome to Crossy Notes, a fun and innovative twist on the classic road-crossing gameplay of Crossy Road. In this game, players take on the role of the legendary composer Ludwig van Beethoven as he traverses roads and collects music elements to create an amazing musical work.
 
-Kocree is a research park startup company dedicated to AI-Aided music co-Creation platform, that why we fused Crossy Road with musical elements in gameplay. Beethoven's Music Crossing Game is a project developed by our Kocree team for research park's one day hackathon. Our aim is to blend the excitement of a classic road-crossing game with the passion of music creation, allowing players to experience the thrill of composing a musical masterpiece.
+We're interns from a research park music startup, that why we fused Crossy Road with musical elements in gameplay. Beethoven's Music Crossing Game is a project developed by our intern team for research park's one day hackathon. Our aim is to blend the excitement of a classic road-crossing game with the passion of music creation, allowing players to experience the thrill of composing a musical masterpiece.
 
 ### Game Objective
 
@@ -36,12 +36,7 @@ Music Elements: Music elements will appear on the road as you play. Collect the 
 
 ### Credits
 
-Team: Quinn Ouyang, Vinit Khatavkar, Han Ni, Haizi Yu
+Team: Quinn Ouyang, Vinit Khatavkar, Han Ni
 Starter Code: https://github.com/danba340/frogger
-
-### Contact
-
-For any inquiries, feedback, or support requests, you can reach out to us at:
-Office: EW 230F
 
 Thank you for choosing Crossy Notes! We hope you enjoy the harmonious experience of creating music with Beethoven as you traverse the roads and collect music elements. Have a melodious time composing your masterpiece!
