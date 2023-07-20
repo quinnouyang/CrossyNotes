@@ -9,6 +9,7 @@ import {
   getRiddenBoat,
   isRidingBoat,
   objectsIdentical,
+  generateId,
 } from "../gameHelpers";
 
 export default function Game() {
@@ -46,7 +47,11 @@ export default function Game() {
   // Correct notes
   const correctNotesState = atom({
     key: "correctNotesState",
-    default: ["C", "E", "G"],
+    default: [
+      { pc: "F", x: 1, y: 6, dir: "up", id: generateId() },
+      { pc: "G", x: 2, y: 6, dir: "down", id: generateId() },
+      { pc: "A", x: 3, y: 6, dir: "up", id: generateId() },
+    ],
   });
   const [correctNotes, setCorrectNotes] = useRecoilState(correctNotesState);
 
@@ -132,17 +137,17 @@ export default function Game() {
       setLevel(level + 1);
       setPlayer({ ...player, x: 4, y: 8 });
     }
-    if (level == 5) {
+    if (level === 5) {
       setLevel(1);
     }
   }, [player, setPlayer, level, setLevel]);
 
   return (
     <>
-      {level == 1 && <World />}
-      {level == 2 && <World />}
-      {level == 3 && <World />}
-      {level == 4 && <World />}
+      {level === 1 && <World />}
+      {level === 2 && <World />}
+      {level === 3 && <World />}
+      {level === 4 && <World />}
 
       <Inputs />
     </>

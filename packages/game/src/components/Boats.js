@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 import { useInterval } from "../hooks/useInterval";
 import MovingObject from "./MovingObject";
+import { generateId } from "../gameHelpers";
 
 function Boats() {
   const boatsState = atom({
@@ -34,13 +35,13 @@ function Boats() {
     if (!boatsCopy.filter((boat) => boat.x === 7 || boat.x === 1).length) {
       newBoats.push(
         {
-          id: Math.random().toString(36).substr(2, 9),
+          id: generateId(),
           x: 9,
           y: 1,
           dir: "up",
         },
         {
-          id: Math.random().toString(36).substr(2, 9),
+          id: generateId(),
           x: -1,
           y: 2,
           dir: "down",

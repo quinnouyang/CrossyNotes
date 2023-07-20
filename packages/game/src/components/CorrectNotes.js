@@ -1,21 +1,24 @@
 import React from "react";
 import { atom, useRecoilState } from "recoil";
-import MovingObject from "./MovingObject";
+import FixedObject from "./FixedObject";
+import { generateId } from "../gameHelpers";
 
 export default function CorrectNotes() {
-  const correctNotesState = atom({
-    key: "correctNotesState",
-    default: [
-      { x: 4, y: 6.5, dir: "up", id: Math.random().toString(36).substr(2, 9) },
-    ],
-  });
-  const [notes] = useRecoilState(correctNotesState);
+  const correctNotes = useRecoilState(atom({ key: "correctNotesState" }))[0];
+
+  const displayNotes = correctNotes
+    ? correctNotes
+    : [
+        { pc: "F", x: 1, y: 6, dir: "up", id: generateId() },
+        { pc: "G", x: 2, y: 6, dir: "down", id: generateId() },
+        { pc: "A", x: 3, y: 6, dir: "up", id: generateId() },
+      ];
 
   return (
     <>
-      {notes.map((note) => {
+      {displayNotes?.map((note) => {
         return (
-          <MovingObject
+          <FixedObject
             key={note.id}
             x={note.x}
             y={note.y}

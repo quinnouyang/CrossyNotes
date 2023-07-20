@@ -35,3 +35,7 @@ export const hasReachedGoal = (player) => {
 export const objectsIdentical = (o1, o2) => {
   return JSON.stringify(o1) === JSON.stringify(o2);
 };
+
+export const generateId = () => {
+  return Math.random().toString(36).substring(2, 9);
+};

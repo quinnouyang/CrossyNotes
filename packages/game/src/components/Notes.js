@@ -2,13 +2,19 @@ import React, { useCallback } from "react";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 import { useInterval } from "../hooks/useInterval";
 import MovingObject from "./MovingObject";
+import { generateId } from "../gameHelpers";
 
 export default function Notes() {
   const notesState = atom({
     key: "notesState",
     default: [
-      { x: -1, y: 5, dir: "down", id: Math.random().toString(36).substr(2, 9) },
-      { x: 9, y: 6, dir: "up", id: Math.random().toString(36).substr(2, 9) },
+      {
+        x: -1,
+        y: 5,
+        dir: "down",
+        id: generateId(),
+      },
+      { x: 9, y: 6, dir: "up", id: generateId() },
     ],
   });
   const [notes, setNotes] = useRecoilState(notesState);
@@ -33,13 +39,13 @@ export default function Notes() {
     const newNotes = [];
     if (!notesCopy.filter((note) => note.x === 7 || note.x === 1).length) {
       newNotes.push({
-        id: Math.random().toString(36).substr(2, 9),
+        id: generateId(),
         x: 9,
         y: 6,
         dir: "up",
       });
       newNotes.push({
-        id: Math.random().toString(36).substr(2, 9),
+        id: generateId(),
         x: -1,
         y: 5,
         dir: "down",
