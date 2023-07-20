@@ -54,14 +54,14 @@ export default function Game() {
   // Correct notes
   const correctNotesState = atom({
     key: "correctNotesState",
-    default: [],
+    default: ["C", "E", "G"],
   });
   const [correctNotes, setCorrectNotes] = useRecoilState(correctNotesState);
 
   // Correct chord
   const correctChordState = atom({
     key: "correctChordState",
-    default: "",
+    default: "CEG",
   });
   const [correctChord, setCorrectChord] = useRecoilState(correctChordState);
 
