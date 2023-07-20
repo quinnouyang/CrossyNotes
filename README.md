@@ -1,5 +1,7 @@
 # Crossy Notes
 
+![image](https://github.com/quinnouyang/CrossyNotes/assets/90884224/593a53ec-9089-424e-8264-1f7e063bb74e)
+
 Kocree's Beethoven's Music Crossing Game
 
 Welcome to Crossy Notes, a fun and innovative twist on the classic road-crossing gameplay of Crossy Road. In this game, players take on the role of the legendary composer Ludwig van Beethoven as he traverses roads and collects music elements to create an amazing musical work.
