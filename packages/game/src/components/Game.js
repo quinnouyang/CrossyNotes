@@ -48,8 +48,8 @@ export default function Game() {
   const correctNotesState = atom({
     key: "correctNotesState",
     default: [
-      { pc: "F", x: 1, y: 6, dir: "up", id: generateId() },
-      { pc: "G", x: 2, y: 6, dir: "down", id: generateId() },
+      { pc: "F", x: 1, y: 4, dir: "up", id: generateId() },
+      { pc: "G", x: 2, y: 5, dir: "down", id: generateId() },
       { pc: "A", x: 3, y: 6, dir: "up", id: generateId() },
     ],
   });
@@ -86,16 +86,20 @@ export default function Game() {
       }, 1000);
     }
 
-    function handleNoteCollection(note) {
-      if (collectedNotes.includes(note)) return;
+    function handleNoteCollection(pc) {
+      if (collectedNotes.includes(pc)) return;
 
-      // console.log(note);
-      setCollectedNotes((prevNotes) => [...prevNotes, note]);
+      console.log(pc);
+      setCollectedNotes((prevNotes) => [...prevNotes, pc]);
     }
 
-    const collectedNote = getCollected(player, notes);
-    if (correctNotes && collectedNote) {
-      if (correctNotes.includes(collectedNote)) handleNoteCollection();
+    const collectedNote =
+      getCollected(player, notes) ?? getCollected(player, correctNotes);
+    if (collectedNote && correctNotes) {
+      if (
+        correctNotes.find((correctNote) => correctNote.pc === collectedNote.pc)
+      )
+        handleNoteCollection(collectedNote.pc);
       else resetPlayer();
     }
 
