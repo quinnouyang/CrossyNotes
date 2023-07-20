@@ -3,13 +3,12 @@ import { atom, useRecoilState } from "recoil";
 import { useInterval } from "../hooks/useInterval";
 import MovingObject from "./MovingObject";
 
-function Notes() {
+export default function Notes() {
   const notesState = atom({
     key: "notesState",
     default: [
       { x: -1, y: 5, dir: "down", id: Math.random().toString(36).substr(2, 9) },
       { x: 9, y: 6, dir: "up", id: Math.random().toString(36).substr(2, 9) },
-      { x: 9, y: 5.5, dir: "up", id: Math.random().toString(36).substr(2, 9) },
     ],
   });
   const [notes, setNotes] = useRecoilState(notesState);
@@ -36,12 +35,6 @@ function Notes() {
         id: Math.random().toString(36).substr(2, 9),
         x: 9,
         y: 6,
-        dir: "up",
-      });
-      newNotes.push({
-        id: Math.random().toString(36).substr(2, 9),
-        x: 9,
-        y: 5.5,
         dir: "up",
       });
       newNotes.push({
@@ -79,5 +72,3 @@ function Notes() {
     </>
   );
 }
-
-export default Notes;
