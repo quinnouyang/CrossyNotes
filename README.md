@@ -1,6 +1,6 @@
 # Crossy Notes
 
-![image](https://github.com/quinnouyang/CrossyNotes/assets/90884224/88dc73c5-7c3e-4dfc-87c4-7f77954b25c5)
+![image](https://github.com/quinnouyang/CrossyNotes/assets/90884224/e40ef589-00e2-49a1-a839-d47fcfe04a74)
 
 Kocree's Beethoven's Music Crossing Game
 
