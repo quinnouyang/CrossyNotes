@@ -12,10 +12,10 @@ function App() {
           <span role="img" aria-label="flag">
             🏁
           </span>
-          GAME
+          Crossy Notes
           <span role="img" aria-label="flag">
             {" "}
-            🏁
+            🎹
           </span>
         </h1>
         <Game />

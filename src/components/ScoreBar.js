@@ -18,27 +18,13 @@ function ScoreBar() {
   return (
     <div className="score-bar">
       <div className="score-wrapper">
-        {player && player.dead ? (
-          <div
-            className="button"
-            onClick={() => {
-              setGameOver(false);
-              setPlayer({ x: 4, y: 8, dir: "up", dead: false });
-            }}
-          >
-            RESTART
-          </div>
-        ) : (
-          <>
-            <img
-              alt="ur face"
-              style={{ width: 400, height: 400 }}
-              src={playerFace}
-            />
-            <span className="score">{level ? level : 1}</span>
-            <Inventory />
-          </>
-        )}
+        <img
+          alt="ur face"
+          style={{ width: 100, height: 100 }}
+          src={playerFace}
+        />
+        <span className="score">lvl. {level ? level : 1}</span>
+        <Inventory />
       </div>
     </div>
   );

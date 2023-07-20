@@ -13,7 +13,7 @@ function Inventory() {
   return (
     <div className="scorebar">
       <div className="inventory">
-        <h2>Notes : </h2>
+        <h2>Notes </h2>
         <ul className="inventory">
           {displayNotes &&
             displayNotes.map((item, index) => (
@@ -27,7 +27,7 @@ function Inventory() {
         </ul>
       </div>
       <div className="inventory">
-        <h2>Chord : </h2>
+        <h2>Chord </h2>
         <ul className="inventory">
           <li className={displayChord === collectedChord ? "selected" : ""}>
             {displayChord}
