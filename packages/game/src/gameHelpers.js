@@ -1,7 +1,8 @@
 import { WATER_TILES_Y_INDEXES } from "./constants";
 
-export const isNoteCollision = (player, notes) => {
-  return notes.some((note) => note.x === player.x && note.y === player.y);
+export const getCollected = (player, notesOrChords) => {
+  if (!notesOrChords) return null;
+  return notesOrChords.find((noc) => noc.x === player.x && noc.y === player.y);
 };
 
 export const isDrowning = (player, boats) => {

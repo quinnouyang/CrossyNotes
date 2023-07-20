@@ -4,7 +4,7 @@ import World from "./World";
 import Inputs from "./Inputs";
 import {
   isDrowning,
-  isNoteCollision,
+  getCollected,
   hasReachedGoal,
   getRiddenBoat,
   isRidingBoat,
@@ -18,22 +18,56 @@ export default function Game() {
     default: 0,
   });
   const [score, setScore] = useRecoilState(scoreState);
+
   // HighScore
   const highScoreState = atom({
     key: "highScoreState",
     default: 0,
   });
   const [highScore, setHighScore] = useRecoilState(highScoreState);
+
   // Gameover
   const [gameOver, setGameOver] = useRecoilState(
     atom({ key: "gameOverState", default: false })
   );
+
   // Player
   const playerState = atom({ key: "playerState", default: {} });
   const [player, setPlayer] = useRecoilState(playerState);
 
-  // Notes
+  // Collected notes (correct)
+  const collectedNotesState = atom({
+    key: "collectedNotesState",
+    default: [],
+  });
+  const [collectedNotes, setCollectedNotes] =
+    useRecoilState(collectedNotesState);
+
+  // Collected chord (correct)
+  const collectedChordState = atom({
+    key: "collectedChordState",
+    default: [],
+  });
+  const [collectedChord, setCollectedChord] =
+    useRecoilState(collectedChordState);
+
+  // Correct notes
+  const correctNotesState = atom({
+    key: "correctNotesState",
+    default: [],
+  });
+  const [correctNotes, setCorrectNotes] = useRecoilState(correctNotesState);
+
+  // Correct chord
+  const correctChordState = atom({
+    key: "correctChordState",
+    default: "",
+  });
+  const [correctChord, setCorrectChord] = useRecoilState(correctChordState);
+
+  // Notes (incorrect)
   const notes = useRecoilValue(atom({ key: "notesState" }));
+
   // Boats
   const boats = useRecoilValue(atom({ key: "boatsState" }));
 
@@ -55,15 +89,50 @@ export default function Game() {
       }, 1000);
     }
 
-    // Check for drowning
-    if (notes && isNoteCollision(player, notes)) resetPlayer();
+    function handleNoteCollection(note) {
+      if (collectedNotes.includes(note)) return;
+
+      // console.log(note);
+      setCollectedNotes((prevNotes) => [...prevNotes, note]);
+    }
+
+    const collectedNote = getCollected(player, notes);
+    if (notes && collectedNote) {
+      if (correctNotes && correctNotes.includes(collectedNote))
+        handleNoteCollection();
+      else resetPlayer();
+    }
+
+    function handleChordCollection(chord) {
+      // TODO: Check this
+      if (collectedChord) return;
+
+      setCollectedChord(chord);
+    }
+
+    const collectedChord = getCollected(player, boats);
+    if (correctChord === collectedChord) handleChordCollection(correctChord);
+
     if (boats && isRidingBoat(player, boats)) {
       const boat = getRiddenBoat(player, boats);
       if (!objectsIdentical(player, { ...player, x: boat.x, y: boat.y })) {
         setPlayer({ ...player, x: boat.x, y: boat.y });
       }
     } else if (boats && isDrowning(player, boats)) resetPlayer();
-  }, [notes, boats, player, setPlayer, gameOver, setGameOver]);
+  }, [
+    notes,
+    boats,
+    player,
+    setPlayer,
+    gameOver,
+    setGameOver,
+    correctNotes,
+    correctChord,
+    collectedNotes,
+    setCollectedNotes,
+    collectedChord,
+    setCollectedChord,
+  ]);
 
   useEffect(() => {
     // Check for reaching goal
