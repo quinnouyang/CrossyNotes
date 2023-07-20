@@ -11,6 +11,7 @@ import {
   objectsIdentical,
   generateId,
 } from "../gameHelpers";
+import debouncedPlay from "../destroy-ears";
 
 export default function Game() {
   //level
@@ -101,6 +102,8 @@ export default function Game() {
       )
         handleNoteCollection(collectedNote.pc);
       else resetPlayer();
+
+      if (collectedNote.pc) debouncedPlay(collectedNote.pc + "4", 1);
     }
 
     function handleChordCollection(chord) {
