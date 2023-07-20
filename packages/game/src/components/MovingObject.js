@@ -2,12 +2,13 @@ import React from "react";
 import { boatUp, boatDown, noteUp, noteDown } from "../images";
 import { WORLD_SIZE, TILE_ASPECT_RATIO } from "../constants";
 
-function MovingObject({ x, y, type, dir }) {
+export default function MovingObject({ x, y, type, dir }) {
   const yOffset = ((100 / WORLD_SIZE) * TILE_ASPECT_RATIO) / 1.8;
   const yBase = yOffset * y + yOffset / 1.5;
   const xBase = 50 - (100 / 19) * y;
   const xAbs = xBase + (50 / 9) * x;
   const yAbs = yBase + yOffset * x;
+
   let src;
   if (type === "boat" && dir === "up") {
     src = boatUp;
@@ -31,5 +32,3 @@ function MovingObject({ x, y, type, dir }) {
     />
   );
 }
-
-export default MovingObject;
