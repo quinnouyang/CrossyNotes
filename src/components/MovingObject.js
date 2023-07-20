@@ -32,23 +32,23 @@ export default function MovingObject({ x, y, type, dir }) {
 
   let src;
   if (type === "boat") {
-    if (actualLevel == 1) {
+    if (actualLevel === 1) {
       src = chord;
-    } else if (actualLevel == 2) {
+    } else if (actualLevel === 2) {
       src = Math.random() < 0.5 ? chord : chord15;
-    } else if (actualLevel == 3) {
+    } else if (actualLevel === 3) {
       src = Math.random() < 0.5 ? chord2 : chord25;
-    } else if (actualLevel == 4) {
+    } else if (actualLevel === 4) {
       src = Math.random() < 0.5 ? chord3 : chord35;
     }
   } else if (type === "note") {
-    if (actualLevel == 1) {
+    if (actualLevel === 1) {
       src = note;
-    } else if (actualLevel == 2) {
+    } else if (actualLevel === 2) {
       src = Math.random() < 0.5 ? note : note15;
-    } else if (actualLevel == 3) {
+    } else if (actualLevel === 3) {
       src = Math.random() < 0.5 ? note2 : note25;
-    } else if (actualLevel == 4) {
+    } else if (actualLevel === 4) {
       src = Math.random() < 0.5 ? note3 : note35;
     }
   }
