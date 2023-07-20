@@ -13,8 +13,7 @@ function ScoreBar() {
   const [player, setPlayer] = useRecoilState(
     atom({ key: "playerState", default: {} })
   );
-  const score = useRecoilValue(atom({ key: "scoreState" }));
-  const highScore = useRecoilValue(atom({ key: "highScoreState" }));
+  const level = useRecoilValue(atom({ key: "levelState" }));
   const setGameOver = useSetRecoilState(atom({ key: "gameOverState" }));
 
   return (
@@ -33,11 +32,7 @@ function ScoreBar() {
         ) : (
           <>
             <PlayerIcon />
-            <span className="score">{score ? score : 0}</span>
-            <CrownIcon />
-            <span className="high-score scorebar">
-              {highScore ? highScore : 0}
-            </span>
+            <span className="score">{level ? level : 1}</span>
             <Inventory />
           </>
         )}

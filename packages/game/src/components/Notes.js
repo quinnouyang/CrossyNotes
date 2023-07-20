@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { atom, useRecoilState } from "recoil";
+import { atom, useRecoilState, useRecoilValue } from "recoil";
 import { useInterval } from "../hooks/useInterval";
 import MovingObject from "./MovingObject";
 
@@ -12,7 +12,8 @@ export default function Notes() {
     ],
   });
   const [notes, setNotes] = useRecoilState(notesState);
-
+  const level = useRecoilValue(atom({ key: "levelState" }));
+  const multiplier = level ? level : 1;
   const moveNotes = useCallback(() => {
     let notesCopy = [...notes];
     notesCopy = notesCopy.map((note) => {
@@ -53,9 +54,12 @@ export default function Notes() {
     );
   }, [notes, setNotes]);
 
-  useInterval(() => {
-    moveNotes();
-  }, 350);
+  useInterval(
+    () => {
+      moveNotes();
+    },
+    550 - multiplier * 50
+  );
   return (
     <>
       {notes.map((note) => {
