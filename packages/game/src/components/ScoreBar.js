@@ -5,9 +5,8 @@ import {
   useRecoilValue,
   useSetRecoilState,
 } from "recoil";
-import PlayerIcon from "./PlayerIcon";
-import CrownIcon from "./CrownIcon";
 import Inventory from "./Inventory";
+import { playerFace } from "../images";
 
 function ScoreBar() {
   const [player, setPlayer] = useRecoilState(
@@ -31,7 +30,11 @@ function ScoreBar() {
           </div>
         ) : (
           <>
-            <PlayerIcon />
+            <img
+              alt="ur face"
+              style={{ width: 400, height: 400 }}
+              src={playerFace}
+            />
             <span className="score">{level ? level : 1}</span>
             <Inventory />
           </>

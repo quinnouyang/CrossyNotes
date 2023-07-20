@@ -3,6 +3,7 @@ import playerNW from "./images/player/player_NW.png";
 import playerSE from "./images/player/player_SE.png";
 import playerSW from "./images/player/player_SW.png";
 import playerDead from "./images/player/skull.png";
+import playerFace from "./images/player/face.png";
 
 import note from "./images/notes/note.png";
 import noteGreen from "./images/notes/note_green.png";
@@ -41,6 +42,7 @@ export {
   playerNW,
   playerSE,
   playerSW,
+  playerFace,
   grass,
   road,
   roadGrassAbove,
