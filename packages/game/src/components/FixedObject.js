@@ -1,6 +1,16 @@
 import React from "react";
-import { boatUp, boatDown, noteUp, noteDown } from "../images";
+import {
+  boatUp,
+  boatDown,
+  noteUp,
+  noteDown,
+  noteA,
+  noteB,
+  noteC,
+} from "../images";
 import { WORLD_SIZE, TILE_ASPECT_RATIO } from "../constants";
+
+const randomNotes = [noteA, noteB, noteC];
 
 export default function FixedObject({ x, y, type, dir }) {
   const yOffset = ((100 / WORLD_SIZE) * TILE_ASPECT_RATIO) / 1.8;
@@ -16,6 +26,8 @@ export default function FixedObject({ x, y, type, dir }) {
     src = boatDown;
   } else if (type === "note" && dir === "up") {
     src = noteUp;
+  } else if (type === "note" && dir === "any") {
+    src = randomNotes[Math.floor(Math.random() * randomNotes.length)];
   } else if (type === "note" && dir === "down") {
     src = noteDown;
   }

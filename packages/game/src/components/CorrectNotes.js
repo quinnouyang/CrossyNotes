@@ -9,9 +9,9 @@ export default function CorrectNotes() {
   const displayNotes = correctNotes
     ? correctNotes
     : [
-        { pc: "F", x: 1, y: 6, dir: "up", id: generateId() },
-        { pc: "G", x: 2, y: 6, dir: "down", id: generateId() },
-        { pc: "A", x: 3, y: 6, dir: "up", id: generateId() },
+        { pc: "F", x: 1, y: 4, dir: "any", id: generateId() },
+        { pc: "G", x: 2, y: 5, dir: "any", id: generateId() },
+        { pc: "A", x: 3, y: 6, dir: "any", id: generateId() },
       ];
 
   return (

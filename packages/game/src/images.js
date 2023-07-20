@@ -10,6 +10,9 @@ import roadGrassAbove from "./images/road_grass_above.png";
 import roadGrassBelow from "./images/road_grass_below.png";
 import noteUp from "./images/note_NW.png";
 import noteDown from "./images/note_SE.png";
+import noteA from "./images/note_A.png";
+import noteB from "./images/note_B.png";
+import noteC from "./images/note_C.png";
 import water from "./images/water.png";
 import waterBeachAbove from "./images/water_beach_above.png";
 import waterBeachBelow from "./images/water_beach_below.png";
@@ -31,6 +34,9 @@ export {
   roadGrassBelow,
   noteUp,
   noteDown,
+  noteA,
+  noteB,
+  noteC,
   water,
   waterBeachAbove,
   waterBeachBelow,

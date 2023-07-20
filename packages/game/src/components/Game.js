@@ -94,9 +94,8 @@ export default function Game() {
     }
 
     const collectedNote = getCollected(player, notes);
-    if (notes && collectedNote) {
-      if (correctNotes && correctNotes.includes(collectedNote))
-        handleNoteCollection();
+    if (correctNotes && collectedNote) {
+      if (correctNotes.includes(collectedNote)) handleNoteCollection();
       else resetPlayer();
     }
 
