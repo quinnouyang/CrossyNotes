@@ -12,18 +12,12 @@ import {
 } from "../gameHelpers";
 
 export default function Game() {
-  //Score
-  const scoreState = atom({
-    key: "scoreState",
-    default: 0,
+  //level
+  const levelState = atom({
+    key: "levelState",
+    default: 1,
   });
-  const [score, setScore] = useRecoilState(scoreState);
-  // HighScore
-  const highScoreState = atom({
-    key: "highScoreState",
-    default: 0,
-  });
-  const [highScore, setHighScore] = useRecoilState(highScoreState);
+  const [level, setLevel] = useRecoilState(levelState);
   // Gameover
   const [gameOver, setGameOver] = useRecoilState(
     atom({ key: "gameOverState", default: false })
@@ -68,17 +62,21 @@ export default function Game() {
   useEffect(() => {
     // Check for reaching goal
     if (hasReachedGoal(player)) {
-      setScore(score + 1);
-      if (score + 1 > highScore) {
-        setHighScore(score + 1);
-      }
+      setLevel(level + 1);
       setPlayer({ ...player, x: 4, y: 8 });
     }
-  }, [player, setPlayer, score, setScore, highScore, setHighScore]);
+    if (level == 5) {
+      setLevel(1);
+    }
+  }, [player, setPlayer, level, setLevel]);
 
   return (
     <>
-      <World />
+      {level == 1 && <World />}
+      {level == 2 && <World />}
+      {level == 3 && <World />}
+      {level == 4 && <World />}
+
       <Inputs />
     </>
   );

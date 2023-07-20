@@ -19,8 +19,7 @@ function ScoreBar() {
   });
   const [inventory, setInventory] = useRecoilState(inventoryState);
   const [selectedNotes, setSelectedNotes] = useState([]);
-  const score = useRecoilValue(atom({ key: "scoreState" }));
-  const highScore = useRecoilValue(atom({ key: "highScoreState" }));
+  const level = useRecoilValue(atom({ key: "levelState" }));
   const setGameOver = useSetRecoilState(atom({ key: "gameOverState" }));
 
   const handleNoteClick = (note) => {
@@ -33,7 +32,6 @@ function ScoreBar() {
       setSelectedNotes((prevNotes) => [...prevNotes, note]);
     }
   };
-  console.log(score, highScore);
   return (
     <div className="score-bar">
       <div className="score-wrapper">
@@ -49,14 +47,8 @@ function ScoreBar() {
           </div>
         ) : (
           <>
-            <FrogIcon />
-            <span className="score scorebar">{score ? score : 0}</span>
             <PlayerIcon />
-            <span className="score">{score ? score : 0}</span>
-            <CrownIcon />
-            <span className="high-score scorebar">
-              {highScore ? highScore : 0}
-            </span>
+            <span className="score">{level ? level : 1}</span>
             <Inventory />
           </>
         )}

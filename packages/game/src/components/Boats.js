@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { atom, useRecoilState } from "recoil";
+import { atom, useRecoilState, useRecoilValue } from "recoil";
 import { useInterval } from "../hooks/useInterval";
 import MovingObject from "./MovingObject";
 
@@ -12,6 +12,8 @@ function Boats() {
     ],
   });
   const [boats, setBoats] = useRecoilState(boatsState);
+  const level = useRecoilValue(atom({ key: "levelState" }));
+  const multiplier = level ? level : 1;
 
   const moveBoats = useCallback(() => {
     let boatsCopy = [...boats];
@@ -54,9 +56,12 @@ function Boats() {
     );
   }, [boats, setBoats]);
 
-  useInterval(() => {
-    moveBoats();
-  }, 350);
+  useInterval(
+    () => {
+      moveBoats();
+    },
+    550 - multiplier * 50
+  );
 
   return (
     <>
