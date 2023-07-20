@@ -1,6 +1,8 @@
-# Crossy Notes
+# Crossy Notes 🎹
 
 ![image](https://github.com/quinnouyang/CrossyNotes/assets/90884224/e40ef589-00e2-49a1-a839-d47fcfe04a74)
+
+> This project would literally not be possible without boilerplate from https://github.com/danba340/frogger. For that, we are eternally greatful. 💜
 
 ## Kocree's Beethoven's Music Crossing Game
 
@@ -30,6 +32,7 @@ Music Elements: Music elements will appear on the road as you play. Collect the 
 
 ### Credits
 Team: Quinn Ouyang, Vinit Khatavkar, Han Ni, Haizi Yu
+Starter Code: https://github.com/danba340/frogger
 
 ### Contact
 For any inquiries, feedback, or support requests, you can reach out to us at:
