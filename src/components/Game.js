@@ -61,7 +61,7 @@ export default function Game() {
     key: "correctChordState",
     default: "CEG",
   });
-  const [correctChord, setCorrectChord] = useRecoilState(correctChaordState);
+  const [correctChord, setCorrectChord] = useRecoilState(correctChordState);
 
   // Notes (incorrect)
   const notes = useRecoilValue(atom({ key: "notesState" }));
